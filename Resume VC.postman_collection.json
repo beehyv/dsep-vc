@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "e8379636-f5f7-46e4-bc7b-c7e8d8fde7bf",
+		"name": "Resume VC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5996699"
+	},
+	"item": [
+		{
+			"name": "Certify Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"name\": \"swathiG\",\r\n    \"dob\": \"1991-11-29\",\r\n    \"registrationId\": \"123456\",\r\n    \"gender\": \"female\",\r\n    \"registrationCouncil\": \"Karnataka\",\r\n    \"latestQualification\": \"quali\",\r\n    \"university\": \"Test university\",\r\n    \"degreeYear\": \"2019\",\r\n    \"systemOfMedicine\": \"test system\",\r\n    \"registrationDate\": \"2021-09-09\",\r\n    \"registrationExpiry\": \"2022-09-09\",\r\n    \"issuer\": \"http://www.india.gov.in\",\r\n    \"issuanceDate\": \"2021-09-17T22:00:00.000Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/vc-certification/v1/certify/HealthProfessional83",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vc-certification",
+						"v1",
+						"certify",
+						"HealthProfessional83"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get transaction Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "template-key",
+						"value": "html",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/pdf",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/vc-management/v1/transaction/4d9c7309-fde3-43ec-b40c-69cc0f8f0cc7",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vc-management",
+						"v1",
+						"transaction",
+						"4d9c7309-fde3-43ec-b40c-69cc0f8f0cc7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Certificate Download Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "template-key",
+						"value": "html",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/pdf",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/vc-certification/v1/certificate/HealthProfessional83/871940459702",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vc-certification",
+						"v1",
+						"certificate",
+						"HealthProfessional83",
+						"871940459702"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Schema",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\"name\":\"HealthProfessional82\",\"status\": \"PUBLISHED\",\n\"schema\":\"{\\n  \\\"$schema\\\": \\\"http://json-schema.org/draft-07/schema\\\",\\n  \\\"type\\\": \\\"object\\\",\\n  \\\"properties\\\": {\\n    \\\"HealthProfessional82\\\": {\\n      \\\"$ref\\\": \\\"#/definitions/HealthProfessional82\\\"\\n    }\\n  },\\n  \\\"required\\\": [\\n    \\\"HealthProfessional82\\\"\\n  ],\\n  \\\"title\\\": \\\"HealthProfessional82\\\",\\n  \\\"definitions\\\": {\\n    \\\"HealthProfessional82\\\": {\\n      \\\"type\\\": \\\"object\\\",\\n      \\\"title\\\": \\\"HP Certificate\\\",\\n      \\\"required\\\": [\\n        \\\"name\\\",\\n        \\\"dob\\\",\\n        \\\"registrationId\\\",\\n        \\\"registrationCouncil\\\",\\n        \\\"registrationDate\\\",\\n        \\\"systemOfMedicine\\\",\\n        \\\"latestQualification\\\",\\n        \\\"degreeYear\\\",\\n        \\\"issuer\\\",\\n        \\\"issuanceDate\\\",\\n        \\\"certificateId\\\"\\n      ],\\n      \\\"properties\\\": {\\n        \\\"registrationId\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"certificateId\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"name\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"dob\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"gender\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"registrationCouncil\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"registrationDate\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"registrationExpiry\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"systemOfMedicine\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"latestQualification\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"university\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"degreeYear\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"issuer\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        },\\n        \\\"issuanceDate\\\": {\\n          \\\"type\\\": \\\"string\\\"\\n        }\\n      }\\n    }\\n  },\\n  \\\"_osConfig\\\": {\\n    \\\"uniqueIndexFields\\\": [],\\n    \\\"ownershipAttributes\\\": [],\\n    \\\"roles\\\": [],\\n    \\\"inviteRoles\\\": [\\n      \\\"anonymous\\\"\\n    ],\\n    \\\"enableLogin\\\": false,\\n    \\\"credentialTemplate\\\": {\\n      \\\"@context\\\": [\\n        \\\"https://www.w3.org/2018/credentials/v1\\\",\\n        \\\"http://vc-management-service:7655/vc-management/v1/context/e05423d4-2d42-4491-9a45-4172a8bed1cb\\\"\\n      ],\\n      \\\"type\\\": [\\n        \\\"VerifiableCredential\\\",\\n        \\\"ProofOfHealthProfessionalCredential\\\"\\n      ],\\n      \\\"credentialSubject\\\": {\\n        \\\"type\\\": \\\"Person\\\",\\n        \\\"refId\\\": \\\"{{registrationId}}\\\",\\n        \\\"name\\\": \\\"{{name}}\\\",\\n        \\\"dob\\\": \\\"{{dob}}\\\",\\n        \\\"gender\\\": \\\"{{gender}}\\\"\\n      },\\n      \\\"issuer\\\": \\\"{{{issuer}}}\\\",\\n      \\\"issuanceDate\\\": \\\"{{issuanceDate}}\\\",\\n      \\\"evidence\\\": {\\n        \\\"type\\\": \\\"HealthProfessional82\\\",\\n        \\\"certificateId\\\": \\\"{{certificateId}}\\\",\\n        \\\"registrationCouncil\\\": \\\"{{registrationCouncil}}\\\",\\n        \\\"latestQualification\\\": \\\"{{latestQualification}}\\\",\\n        \\\"university\\\": \\\"{{university}}\\\",\\n        \\\"registrationDate\\\": \\\"{{registrationDate}}\\\",\\n        \\\"systemOfMedicine\\\": \\\"{{systemOfMedicine}}\\\",\\n        \\\"registrationExpiry\\\": \\\"{{registrationExpiry}}\\\",\\n        \\\"degreeYear\\\": \\\"{{degreeYear}}\\\"\\n      },\\n      \\\"nonTransferable\\\": \\\"true\\\"\\n    },\\n   \\\"certificateTemplates\\\": {\\n      \\\"html\\\": \\\"minio://Tenant/2aa4657e-c7a1-498a-bb2c-70aca69a68f5/templates/documents/830755c8-761a-4594-91b9-e7825146baa4-vcTempHealthcareUpdateds.html\\\",\\n      \\\"svg\\\": \\\"https://raw.githubusercontent.com/dileepbapat/ref-sunbirdrc-certificate/main/schemas/templates/TrainingCertificate.svg\\\"\\n    }\\n  }\\n}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/vc-management/v1/schema",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vc-management",
+						"v1",
+						"schema"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
